@@ -7,9 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6D0174901947C1D1006ED87B /* swift6502.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D01748F1947C1D1006ED87B /* swift6502.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AF730F2194EA97B00B8A0A4 /* addressing_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF730E1194EA97B00B8A0A4 /* addressing_tests.swift */; };
+		1AF730F3194EA97B00B8A0A4 /* AllSuiteA.txt in Sources */ = {isa = PBXBuildFile; fileRef = 1AF730E2194EA97B00B8A0A4 /* AllSuiteA.txt */; };
+		1AF730F4194EA97B00B8A0A4 /* AllSuiteA.bin in Resources */ = {isa = PBXBuildFile; fileRef = 1AF730E3194EA97B00B8A0A4 /* AllSuiteA.bin */; };
+		1AF730F6194EA97B00B8A0A4 /* interrupt_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF730E5194EA97B00B8A0A4 /* interrupt_tests.swift */; };
+		1AF730F7194EA97B00B8A0A4 /* cpu_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF730E6194EA97B00B8A0A4 /* cpu_tests.swift */; };
+		1AF73102194EA97B00B8A0A4 /* testBRK.bin in Resources */ = {isa = PBXBuildFile; fileRef = 1AF730F1194EA97B00B8A0A4 /* testBRK.bin */; };
 		6D0174961947C1D1006ED87B /* swift6502.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D01748A1947C1D1006ED87B /* swift6502.framework */; };
-		6D01749D1947C1D1006ED87B /* swift6502Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01749C1947C1D1006ED87B /* swift6502Tests.swift */; };
+		6D0174AD1947C249006ED87B /* addressing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0174A61947C249006ED87B /* addressing.swift */; };
+		6D0174AE1947C249006ED87B /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0174A71947C249006ED87B /* constants.swift */; };
+		6D0174AF1947C249006ED87B /* cpu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0174A81947C249006ED87B /* cpu.swift */; };
+		6D0174B01947C249006ED87B /* flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0174A91947C249006ED87B /* flags.swift */; };
+		6D0174B11947C249006ED87B /* instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0174AA1947C249006ED87B /* instruction.swift */; };
+		6D0174B21947C249006ED87B /* loadstoretransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0174AB1947C249006ED87B /* loadstoretransfer.swift */; };
+		6D66EE95194B644A00B3EF97 /* jumpbranch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D66EE94194B644A00B3EF97 /* jumpbranch.swift */; };
+		6D8191481948D617002FA5A0 /* stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8191471948D617002FA5A0 /* stack.swift */; };
+		6D81914A1948E340002FA5A0 /* logicmath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8191491948E340002FA5A0 /* logicmath.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +36,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1AF730E1194EA97B00B8A0A4 /* addressing_tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addressing_tests.swift; sourceTree = "<group>"; };
+		1AF730E2194EA97B00B8A0A4 /* AllSuiteA.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllSuiteA.txt; sourceTree = "<group>"; };
+		1AF730E3194EA97B00B8A0A4 /* AllSuiteA.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = AllSuiteA.bin; sourceTree = "<group>"; };
+		1AF730E5194EA97B00B8A0A4 /* interrupt_tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = interrupt_tests.swift; sourceTree = "<group>"; };
+		1AF730E6194EA97B00B8A0A4 /* cpu_tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cpu_tests.swift; sourceTree = "<group>"; };
+		1AF730F1194EA97B00B8A0A4 /* testBRK.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = testBRK.bin; sourceTree = "<group>"; };
 		6D01748A1947C1D1006ED87B /* swift6502.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = swift6502.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D01748E1947C1D1006ED87B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6D01748F1947C1D1006ED87B /* swift6502.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = swift6502.h; sourceTree = "<group>"; };
 		6D0174951947C1D1006ED87B /* swift6502Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swift6502Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D01749B1947C1D1006ED87B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6D01749C1947C1D1006ED87B /* swift6502Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift6502Tests.swift; sourceTree = "<group>"; };
+		6D0174A61947C249006ED87B /* addressing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addressing.swift; sourceTree = "<group>"; };
+		6D0174A71947C249006ED87B /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		6D0174A81947C249006ED87B /* cpu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cpu.swift; sourceTree = "<group>"; };
+		6D0174A91947C249006ED87B /* flags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = flags.swift; sourceTree = "<group>"; };
+		6D0174AA1947C249006ED87B /* instruction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = instruction.swift; sourceTree = "<group>"; };
+		6D0174AB1947C249006ED87B /* loadstoretransfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loadstoretransfer.swift; sourceTree = "<group>"; };
+		6D66EE94194B644A00B3EF97 /* jumpbranch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jumpbranch.swift; sourceTree = "<group>"; };
+		6D8191471948D617002FA5A0 /* stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stack.swift; sourceTree = "<group>"; };
+		6D8191491948E340002FA5A0 /* logicmath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logicmath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +76,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AF73103194EA9A200B8A0A4 /* code */ = {
+			isa = PBXGroup;
+			children = (
+				1AF730F1194EA97B00B8A0A4 /* testBRK.bin */,
+				1AF730E2194EA97B00B8A0A4 /* AllSuiteA.txt */,
+				1AF730E3194EA97B00B8A0A4 /* AllSuiteA.bin */,
+			);
+			name = code;
+			sourceTree = "<group>";
+		};
 		6D0174801947C1D1006ED87B = {
 			isa = PBXGroup;
 			children = (
@@ -71,7 +107,15 @@
 		6D01748C1947C1D1006ED87B /* swift6502 */ = {
 			isa = PBXGroup;
 			children = (
-				6D01748F1947C1D1006ED87B /* swift6502.h */,
+				6D66EE94194B644A00B3EF97 /* jumpbranch.swift */,
+				6D8191471948D617002FA5A0 /* stack.swift */,
+				6D0174A61947C249006ED87B /* addressing.swift */,
+				6D0174A71947C249006ED87B /* constants.swift */,
+				6D0174A81947C249006ED87B /* cpu.swift */,
+				6D0174A91947C249006ED87B /* flags.swift */,
+				6D0174AA1947C249006ED87B /* instruction.swift */,
+				6D8191491948E340002FA5A0 /* logicmath.swift */,
+				6D0174AB1947C249006ED87B /* loadstoretransfer.swift */,
 				6D01748D1947C1D1006ED87B /* Supporting Files */,
 			);
 			path = swift6502;
@@ -88,7 +132,10 @@
 		6D0174991947C1D1006ED87B /* swift6502Tests */ = {
 			isa = PBXGroup;
 			children = (
-				6D01749C1947C1D1006ED87B /* swift6502Tests.swift */,
+				1AF73103194EA9A200B8A0A4 /* code */,
+				1AF730E1194EA97B00B8A0A4 /* addressing_tests.swift */,
+				1AF730E5194EA97B00B8A0A4 /* interrupt_tests.swift */,
+				1AF730E6194EA97B00B8A0A4 /* cpu_tests.swift */,
 				6D01749A1947C1D1006ED87B /* Supporting Files */,
 			);
 			path = swift6502Tests;
@@ -109,7 +156,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D0174901947C1D1006ED87B /* swift6502.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +246,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AF730F4194EA97B00B8A0A4 /* AllSuiteA.bin in Resources */,
+				1AF73102194EA97B00B8A0A4 /* testBRK.bin in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +258,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D0174AF1947C249006ED87B /* cpu.swift in Sources */,
+				6D0174AD1947C249006ED87B /* addressing.swift in Sources */,
+				6D81914A1948E340002FA5A0 /* logicmath.swift in Sources */,
+				6D0174AE1947C249006ED87B /* constants.swift in Sources */,
+				6D0174B11947C249006ED87B /* instruction.swift in Sources */,
+				6D0174B01947C249006ED87B /* flags.swift in Sources */,
+				6D66EE95194B644A00B3EF97 /* jumpbranch.swift in Sources */,
+				6D8191481948D617002FA5A0 /* stack.swift in Sources */,
+				6D0174B21947C249006ED87B /* loadstoretransfer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +274,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D01749D1947C1D1006ED87B /* swift6502Tests.swift in Sources */,
+				1AF730F7194EA97B00B8A0A4 /* cpu_tests.swift in Sources */,
+				1AF730F2194EA97B00B8A0A4 /* addressing_tests.swift in Sources */,
+				1AF730F3194EA97B00B8A0A4 /* AllSuiteA.txt in Sources */,
+				1AF730F6194EA97B00B8A0A4 /* interrupt_tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +460,7 @@
 				6D0174A21947C1D1006ED87B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D0174A31947C1D1006ED87B /* Build configuration list for PBXNativeTarget "swift6502Tests" */ = {
 			isa = XCConfigurationList;
@@ -408,6 +469,7 @@
 				6D0174A51947C1D1006ED87B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
