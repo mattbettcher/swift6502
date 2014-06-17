@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A43A708194FEDC000434D3C /* decimal_mode_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A43A707194FEDC000434D3C /* decimal_mode_tests.swift */; };
+		1AB8F45A195014790002B8C5 /* decimal_mode.bin in Resources */ = {isa = PBXBuildFile; fileRef = 1AB8F459195014790002B8C5 /* decimal_mode.bin */; };
 		1AF730F2194EA97B00B8A0A4 /* addressing_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF730E1194EA97B00B8A0A4 /* addressing_tests.swift */; };
 		1AF730F3194EA97B00B8A0A4 /* AllSuiteA.txt in Sources */ = {isa = PBXBuildFile; fileRef = 1AF730E2194EA97B00B8A0A4 /* AllSuiteA.txt */; };
 		1AF730F4194EA97B00B8A0A4 /* AllSuiteA.bin in Resources */ = {isa = PBXBuildFile; fileRef = 1AF730E3194EA97B00B8A0A4 /* AllSuiteA.bin */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A43A707194FEDC000434D3C /* decimal_mode_tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = decimal_mode_tests.swift; sourceTree = "<group>"; };
+		1AB8F459195014790002B8C5 /* decimal_mode.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = decimal_mode.bin; sourceTree = "<group>"; };
 		1AF730E1194EA97B00B8A0A4 /* addressing_tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addressing_tests.swift; sourceTree = "<group>"; };
 		1AF730E2194EA97B00B8A0A4 /* AllSuiteA.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllSuiteA.txt; sourceTree = "<group>"; };
 		1AF730E3194EA97B00B8A0A4 /* AllSuiteA.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = AllSuiteA.bin; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				1AF730F1194EA97B00B8A0A4 /* testBRK.bin */,
+				1AB8F459195014790002B8C5 /* decimal_mode.bin */,
 				1AF730E2194EA97B00B8A0A4 /* AllSuiteA.txt */,
 				1AF730E3194EA97B00B8A0A4 /* AllSuiteA.bin */,
 			);
@@ -136,6 +141,7 @@
 				1AF730E1194EA97B00B8A0A4 /* addressing_tests.swift */,
 				1AF730E5194EA97B00B8A0A4 /* interrupt_tests.swift */,
 				1AF730E6194EA97B00B8A0A4 /* cpu_tests.swift */,
+				1A43A707194FEDC000434D3C /* decimal_mode_tests.swift */,
 				6D01749A1947C1D1006ED87B /* Supporting Files */,
 			);
 			path = swift6502Tests;
@@ -246,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AB8F45A195014790002B8C5 /* decimal_mode.bin in Resources */,
 				1AF730F4194EA97B00B8A0A4 /* AllSuiteA.bin in Resources */,
 				1AF73102194EA97B00B8A0A4 /* testBRK.bin in Resources */,
 			);
@@ -275,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AF730F7194EA97B00B8A0A4 /* cpu_tests.swift in Sources */,
+				1A43A708194FEDC000434D3C /* decimal_mode_tests.swift in Sources */,
 				1AF730F2194EA97B00B8A0A4 /* addressing_tests.swift in Sources */,
 				1AF730F3194EA97B00B8A0A4 /* AllSuiteA.txt in Sources */,
 				1AF730F6194EA97B00B8A0A4 /* interrupt_tests.swift in Sources */,

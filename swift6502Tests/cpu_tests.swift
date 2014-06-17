@@ -47,7 +47,7 @@ class swift6502Tests: XCTestCase
         // Assembly code from https://code.google.com/p/hmc-6502/source/browse/trunk/emu/testvectors/AllSuiteA.asm
         // Assembled with The Ophis Assembler from https://hkn.eecs.berkeley.edu/~mcmartin/ophis/
         let cpu = CPU();
-        XCTAssert(cpu.loadBinary("swift6502tests/AllSuiteA.bin", offset: 0x4000, entry: 0x4000))
+        XCTAssert(cpu.loadBinary("swift6502tests/AllSuiteA.bin", offset: 0x4000, entry: 0x4000));
         
         var prevPC: UInt16 = 0x0;
         while !cpu.step()

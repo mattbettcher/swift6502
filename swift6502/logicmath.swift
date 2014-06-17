@@ -43,29 +43,72 @@ func executeBIT(cpu: CPU, instr: Instruction) -> (Bool, UInt8)
     return (false, 0);
 }
 
+func interpret(value: UInt8, fromBase: UInt8, toBase: UInt8) -> UInt8
+{
+    var input: UInt8 = value;
+    var multiplyer: UInt = 1;
+    var result: UInt = 0;
+    
+    while input > 0
+    {
+        result += multiplyer * UInt(input % fromBase);
+        input = input / fromBase;
+        multiplyer = multiplyer * UInt(toBase);
+    }
+    
+    return UInt8(result);
+}
+
+func interpretAsDecimal(value: UInt8) -> UInt8
+{
+    return interpret(value, 16, 10);
+}
+
+func interpretAsHex(value: UInt8) -> UInt8
+{
+    return interpret(value, 10, 16);
+}
+
 func executeADC(cpu: CPU, instr: Instruction) -> (Bool, UInt8)
 {
-    assert(!cpu.flags!.FLAG_DECIMAL_MODE); // Decimal mode not supported yet
-    
     let (address, crossedPage) = getAddress(cpu, instr.addrMode);
     assert(address != nil);
 
     let memoryValue = cpu.memory[Int(address!)];
-    var newValue: UInt = UInt(cpu.REG_ACC) + UInt(memoryValue) + UInt(cpu.flags!.FLAG_CARRY ? 1 : 0);
+    let carry = UInt(cpu.flags!.FLAG_CARRY ? 1 : 0);
+    var newValue: UInt = UInt(cpu.REG_ACC) + UInt(memoryValue) + carry;
     
     cpu.flags!.FLAG_OVERFLOW = (((UInt(cpu.REG_ACC) ^ newValue) & 0x80) != 0) &&
                                (((UInt(cpu.REG_ACC) ^ UInt(memoryValue)) & 0x80) == 0);
-
-    if newValue > 0xff
+    
+    if cpu.flags!.FLAG_DECIMAL_MODE
     {
-        cpu.flags!.FLAG_CARRY = true;
-        newValue = newValue & 0xff;
+        newValue = UInt(interpretAsDecimal(cpu.REG_ACC)) + UInt(interpretAsDecimal(memoryValue)) + carry;
+        if newValue > 99
+        {
+            cpu.flags!.FLAG_CARRY = true;
+            newValue -= 100;
+        }
+        else
+        {
+            cpu.flags!.FLAG_CARRY = false;
+        }
+        
+        newValue = UInt(interpretAsHex(UInt8(newValue)));
     }
     else
     {
-        cpu.flags!.FLAG_CARRY = false;
+        if newValue > 0xff
+        {
+            cpu.flags!.FLAG_CARRY = true;
+            newValue = newValue & 0xff;
+        }
+        else
+        {
+            cpu.flags!.FLAG_CARRY = false;
+        }
     }
-    
+
     cpu.REG_ACC = UInt8(newValue);
     
     let shouldIncrementTime = crossedPage && instr.addrMode != AddressingMode.INDIRECT_X;
@@ -74,21 +117,43 @@ func executeADC(cpu: CPU, instr: Instruction) -> (Bool, UInt8)
 
 func executeSBC(cpu: CPU, instr: Instruction) -> (Bool, UInt8)
 {
-    assert(!cpu.flags!.FLAG_DECIMAL_MODE); // Decimal mode not supported yet
-    
     let (address, crossedPage) = getAddress(cpu, instr.addrMode);
     assert(address != nil);
     
     let memoryValue = cpu.memory[Int(address!)];
-    var newValue: Int = Int(cpu.REG_ACC) - Int(memoryValue) - Int(cpu.flags!.FLAG_CARRY ? 0 : 1);
+    var newValue: Int = 0;
+    var carry = Int(cpu.flags!.FLAG_CARRY ? 0 : 1);
+    
+    if cpu.flags!.FLAG_DECIMAL_MODE
+    {
+        newValue = Int(interpretAsDecimal(cpu.REG_ACC)) - Int(interpretAsDecimal(memoryValue)) - carry;
+    }
+    else
+    {
+        newValue = Int(cpu.REG_ACC) - Int(memoryValue) - carry;
+    }
     
     cpu.flags!.FLAG_CARRY = newValue >= 0;
-    cpu.flags!.FLAG_OVERFLOW = (((Int(cpu.REG_ACC) ^ newValue) & 0x80) != 0) &&
-                               (((Int(cpu.REG_ACC) ^ Int(memoryValue)) & 0x80) != 0);
     
-    if newValue < 0
+    if cpu.flags!.FLAG_DECIMAL_MODE
     {
-        newValue = newValue + 0x100;
+        if newValue < 0
+        {
+            newValue += 100;
+        }
+        
+        assert(newValue >= 0);
+        newValue = Int(interpretAsHex(UInt8(newValue)));
+    }
+    else
+    {
+        cpu.flags!.FLAG_OVERFLOW = (((Int(cpu.REG_ACC) ^ newValue) & 0x80) != 0) &&
+            (((Int(cpu.REG_ACC) ^ Int(memoryValue)) & 0x80) != 0);
+        
+        if newValue < 0
+        {
+            newValue += 0x100;
+        }
     }
 
     assert(newValue >= 0);
