@@ -25,6 +25,7 @@ class Flags
     func setRegister(value: UInt8)
     {
         self.REG_STATUS = value;
+        self.FLAG_UNUSED = true;
     }
     
     var FLAG_CARRY: Bool
