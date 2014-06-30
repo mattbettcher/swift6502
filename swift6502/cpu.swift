@@ -25,7 +25,7 @@ class CPU
         willSet
         {
             self.flags!.FLAG_ZERO = newValue == 0;
-            self.flags!.FLAG_SIGN = newValue & 128 == 1;
+            self.flags!.FLAG_SIGN = (newValue >> 7) == 1;
         }
     }
     
@@ -156,7 +156,7 @@ class CPU
 
 func executeRTI(cpu: CPU, instr: Instruction) -> (Bool, UInt8)
 {
-    cpu.flags!.setRegister(cpu.pop());
+    cpu.REG_STATUS = cpu.pop();
     let lowByte = cpu.pop();
     let highByte = cpu.pop()
     cpu.REG_PC = (UInt16(highByte) << 8) | UInt16(lowByte);
@@ -167,11 +167,12 @@ func executeRTI(cpu: CPU, instr: Instruction) -> (Bool, UInt8)
 
 func executeBRK(cpu: CPU, instr: Instruction) -> (Bool, UInt8)
 {
-    cpu.REG_PC = cpu.REG_PC &+ 1;
+    cpu.REG_PC = cpu.REG_PC &+ 2;
     cpu.push(UInt8(cpu.REG_PC >> 8));
     cpu.push(UInt8(cpu.REG_PC & 0xff));
     cpu.flags!.FLAG_BREAK = true;
     cpu.push(cpu.REG_STATUS);
+    cpu.flags!.FLAG_INTERRUPT_DISABLE = true;
     cpu.REG_PC = loadTwoBytes(cpu, 0xfffe);
     
     return (true, 0);
